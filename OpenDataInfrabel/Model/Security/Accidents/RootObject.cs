@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Model.Security.AccidentCSI
+namespace Model.Security.Accidents
 {
     public class RootObject
     {

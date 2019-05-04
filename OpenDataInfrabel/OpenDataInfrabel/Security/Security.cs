@@ -1,4 +1,6 @@
 ﻿using Model.Security.Accidents;
+using Model.Security.ViolationSignal;
+using Model.Security.ViolationSignalRailwayPrimary;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -15,7 +17,7 @@ namespace OpenDataInfrabel.Security
         {
             httpClient = new HttpClient();
         }
-        public async Task<RootObject> GetAccidentsCSI(string q = "", string lang = "FR", int rows = 10, int start = 0)
+        public async Task<Accident> GetAccidentsCSI(string q = "", string lang = "FR", int rows = 10, int start = 0)
         {
             var request = await httpClient.GetAsync(url +
                 "accidents-csi&facet=column_1&q=" + q +
@@ -25,10 +27,10 @@ namespace OpenDataInfrabel.Security
             if (request.StatusCode != System.Net.HttpStatusCode.OK)
                 return null;
             var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<RootObject>(requestString);
+            var result = JsonConvert.DeserializeObject<Accident>(requestString);
             return result;
         }
-        public async Task<RootObject> GetAccidentsISI(string q = "", string lang = "FR", int rows = 10, int start = 0)
+        public async Task<Accident> GetAccidentsISI(string q = "", string lang = "FR", int rows = 10, int start = 0)
         {
             var request = await httpClient.GetAsync(url +
                 "accidents-isi&facet=column_1&q=" + q +
@@ -38,7 +40,33 @@ namespace OpenDataInfrabel.Security
             if (request.StatusCode != System.Net.HttpStatusCode.OK)
                 return null;
             var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<RootObject>(requestString);
+            var result = JsonConvert.DeserializeObject<Accident>(requestString);
+            return result;
+        }
+        public async Task<ViolationSignalRailwaySecondary> GetViolationSignalRailwaySecondary(string q = "", string lang = "FR", int rows = 10, int start = 0)
+        {
+            var request = await httpClient.GetAsync(url +
+                "depassements-de-signaux-en-voie-accessoires&facet=column_1&q=" + q +
+                "&lang=" + lang +
+                "&rows=" + rows +
+                "&start=" + start);
+            if (request.StatusCode != System.Net.HttpStatusCode.OK)
+                return null;
+            var requestString = await request.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<ViolationSignalRailwaySecondary>(requestString);
+            return result;
+        }
+        public async Task<ViolationSignalRailwayPrimary> GetViolationSignalRailwayPrimary(string q = "", string lang = "FR", int rows = 10, int start = 0)
+        {
+            var request = await httpClient.GetAsync(url +
+                "depassements-de-signaux-en-voies-principales&facet=column_1&q=" + q +
+                "&lang=" + lang +
+                "&rows=" + rows +
+                "&start=" + start);
+            if (request.StatusCode != System.Net.HttpStatusCode.OK)
+                return null;
+            var requestString = await request.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<ViolationSignalRailwayPrimary>(requestString);
             return result;
         }
 

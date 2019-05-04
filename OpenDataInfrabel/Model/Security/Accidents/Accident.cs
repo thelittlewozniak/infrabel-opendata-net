@@ -2,7 +2,7 @@
 
 namespace Model.Security.Accidents
 {
-    public class RootObject
+    public class Accident
     {
         public int Nhits { get; set; }
         public Parameters Parameters { get; set; }

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Model.Security.AccidentCSI
+namespace Model.Security.Accidents
 {
     public class Record
     {

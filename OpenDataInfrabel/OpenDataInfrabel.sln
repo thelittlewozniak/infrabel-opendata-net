@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28822.285
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenDataInfrabel", "OpenDataInfrabel\OpenDataInfrabel.csproj", "{ADDD1280-19FC-4707-A772-CA0C873AC129}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{4CEE5AB3-0782-4645-8561-329763F88905}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADDD1280-19FC-4707-A772-CA0C873AC129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDD1280-19FC-4707-A772-CA0C873AC129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDD1280-19FC-4707-A772-CA0C873AC129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDD1280-19FC-4707-A772-CA0C873AC129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CEE5AB3-0782-4645-8561-329763F88905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CEE5AB3-0782-4645-8561-329763F88905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CEE5AB3-0782-4645-8561-329763F88905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CEE5AB3-0782-4645-8561-329763F88905}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D6F46C5-C786-44AA-BC6A-7195DE5E7FFA}
+	EndGlobalSection
+EndGlobal

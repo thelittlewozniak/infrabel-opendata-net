@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.Security
 {
-    class Security:IDisposable
+    public class Security:IDisposable
     {
         private readonly HttpClient httpClient;
         private bool disposed = false;
@@ -17,52 +17,56 @@ namespace OpenDataInfrabel.Security
         {
             httpClient = new HttpClient();
         }
-        public async Task<Accident> GetAccidentsCSI(string q = "", string lang = "FR", int rows = 10, int start = 0)
+        public async Task<Accident> GetAccidentsCSI(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var request = await httpClient.GetAsync(url +
-                "accidents-csi&facet=column_1&q=" + q +
-                "&lang=" + lang +
-                "&rows=" + rows +
-                "&start=" + start);
+            var finalUrl = url + "dataset=accidents-csi&facet=column_1"
+                +( q == null ? "" : "&q=" + q)
+                + "&lang=" + lang
+                + "&rows=" + rows
+                + "&start=" + start;
+            var request = await httpClient.GetAsync(finalUrl);
             if (request.StatusCode != System.Net.HttpStatusCode.OK)
                 return null;
             var requestString = await request.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<Accident>(requestString);
             return result;
         }
-        public async Task<Accident> GetAccidentsISI(string q = "", string lang = "FR", int rows = 10, int start = 0)
+        public async Task<Accident> GetAccidentsISI(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var request = await httpClient.GetAsync(url +
-                "accidents-isi&facet=column_1&q=" + q +
-                "&lang=" + lang +
-                "&rows=" + rows +
-                "&start=" + start);
+            var finalUrl = url + "dataset=accidents-isi&facet=column_1"
+                + (q == null ? "" : "&q=" + q)
+                + "&lang=" + lang
+                + "&rows=" + rows
+                + "&start=" + start;
+            var request = await httpClient.GetAsync(finalUrl);
             if (request.StatusCode != System.Net.HttpStatusCode.OK)
                 return null;
             var requestString = await request.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<Accident>(requestString);
             return result;
         }
-        public async Task<ViolationSignalRailwaySecondary> GetViolationSignalRailwaySecondary(string q = "", string lang = "FR", int rows = 10, int start = 0)
+        public async Task<ViolationSignalRailwaySecondary> GetViolationSignalRailwaySecondary(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var request = await httpClient.GetAsync(url +
-                "depassements-de-signaux-en-voie-accessoires&facet=column_1&q=" + q +
-                "&lang=" + lang +
-                "&rows=" + rows +
-                "&start=" + start);
+            var finalUrl = url + "dataset=depassements-de-signaux-en-voie-accessoires&facet=annee_jaar"
+                + (q == null ? "" : "&q=" + q)
+                + "&lang=" + lang
+                + "&rows=" + rows
+                + "&start=" + start;
+            var request = await httpClient.GetAsync(finalUrl);
             if (request.StatusCode != System.Net.HttpStatusCode.OK)
                 return null;
             var requestString = await request.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<ViolationSignalRailwaySecondary>(requestString);
             return result;
         }
-        public async Task<ViolationSignalRailwayPrimary> GetViolationSignalRailwayPrimary(string q = "", string lang = "FR", int rows = 10, int start = 0)
+        public async Task<ViolationSignalRailwayPrimary> GetViolationSignalRailwayPrimary(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var request = await httpClient.GetAsync(url +
-                "depassements-de-signaux-en-voies-principales&facet=column_1&q=" + q +
-                "&lang=" + lang +
-                "&rows=" + rows +
-                "&start=" + start);
+            var finalUrl = url + "dataset=depassements-de-signaux-en-voies-principales&facet=column_1"
+                + (q == null ? "" : "&q=" + q)
+                + "&lang=" + lang
+                + "&rows=" + rows
+                + "&start=" + start;
+            var request = await httpClient.GetAsync(finalUrl);
             if (request.StatusCode != System.Net.HttpStatusCode.OK)
                 return null;
             var requestString = await request.Content.ReadAsStringAsync();

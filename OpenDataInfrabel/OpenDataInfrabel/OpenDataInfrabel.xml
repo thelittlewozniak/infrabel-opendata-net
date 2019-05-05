@@ -4,20 +4,20 @@
         <name>OpenDataInfrabel</name>
     </assembly>
     <members>
-        <member name="T:OpenDataInfrabel.ClientsProducts.ClientsProducts">
+        <member name="T:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts">
             <summary>
             This class handle all call possible for Clients and products theme on the open data of Infrabel
             </summary>
         </member>
-        <member name="M:OpenDataInfrabel.ClientsProducts.ClientsProducts.#ctor">
+        <member name="M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.#ctor">
             <summary>
             Instantiation of the httpClient
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionTonsKilometers(System.String,System.String,System.Int32,System.Int32)" -->
-        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionTrainsKilometers(System.String,System.String,System.Int32,System.Int32)" -->
-        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionEffectiveNumberTrainPaths(System.String,System.String,System.Int32,System.Int32)" -->
-        <member name="M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionNetTonnageYear(System.String,System.String,System.Int32,System.Int32)">
+        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionTonsKilometers(System.String,System.String,System.Int32,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionTrainsKilometers(System.String,System.String,System.Int32,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionEffectiveNumberTrainPaths(System.String,System.String,System.Int32,System.Int32)" -->
+        <member name="M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionNetTonnageYear(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Evolution of net tonnage per year link = "https://opendata.infrabel.be/explore/dataset/evolution-du-tonnage-net-par-an/information/"
             </summary>
@@ -27,17 +27,17 @@
             <param name="start">index of the first result wanted</param>
             <returns> EvolutionNetTonnageYear class type</returns>
         </member>
-        <member name="T:OpenDataInfrabel.Security.Security">
+        <member name="T:OpenDataInfrabel.SecurityTheme.Security">
             <summary>
             This class handle all call possible for the security them on the open data of Infrabel
             </summary>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.#ctor">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.#ctor">
             <summary>
             Instantiation of the httpClient
             </summary>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.GetAccidentsCSI(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.GetAccidentsCSI(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Get accidents CSI link = "https://opendata.infrabel.be/explore/dataset/accidents-csi/information/"
             </summary>
@@ -47,7 +47,7 @@
             <param name="start">index of the first result wanted</param>
             <returns> Accident class type</returns>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.GetAccidentsISI(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.GetAccidentsISI(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Get Accidents ISI link = "https://opendata.infrabel.be/explore/dataset/accidents-isi/information/"
             </summary>
@@ -57,7 +57,7 @@
             <param name="start">index of the first result wanted</param>
             <returns> Accident class type</returns>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.GetViolationSignalRailwaySecondary(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.GetViolationSignalRailwaySecondary(System.String,System.String,System.Int32,System.Int32)">
             <summary>
              Get Violation of Signals on secondary Railway link = "https://opendata.infrabel.be/explore/dataset/depassements-de-signaux-en-voie-accessoires/information/"
             </summary>
@@ -67,7 +67,7 @@
             <param name="start">index of the first result wanted</param>
             <returns>ViolationSignalRailwaySecondary class type</returns>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.GetViolationSignalRailwayPrimary(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.GetViolationSignalRailwayPrimary(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Get Violation of Signals on primary Railway link = "https://opendata.infrabel.be/explore/dataset/depassements-de-signaux-en-voies-principales/information/"
             </summary>
@@ -77,7 +77,7 @@
             <param name="start">index of the first result wanted</param>
             <returns>ViolationSignalRailwayPrimary class type</returns>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.GetViolationSignalRailwayPrimaryPerTrain(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.GetViolationSignalRailwayPrimaryPerTrain(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Get Violation of Signals on primary Railway per type of Train link = "https://opendata.infrabel.be/explore/dataset/depassements-de-signaux-par-type-de-train-sur-les-voies-principales/information/"
             </summary>
@@ -87,7 +87,7 @@
             <param name="start">index of the first result wanted</param>
             <returns>ViolationSignalRailwayPrimaryPerTrain class type</returns>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.GetViolationRailway(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.GetViolationRailway(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Get Violation on Railway link = "https://opendata.infrabel.be/explore/dataset/intrusions-sur-les-voies/information/"
             </summary>
@@ -97,7 +97,7 @@
             <param name="start">index of the first result wanted</param>
             <returns>ViolationRailway class type</returns>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.GetPrecursorsSecurity(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.GetPrecursorsSecurity(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Get Precursors security link = "https://opendata.infrabel.be/explore/dataset/precurseurs-securite/information/"
             </summary>
@@ -107,7 +107,7 @@
             <param name="start">index of the first result wanted</param>
             <returns>PrecursorsSecurity class type</returns>
         </member>
-        <member name="M:OpenDataInfrabel.Security.Security.GetAutomaticProtectionSystem(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:OpenDataInfrabel.SecurityTheme.Security.GetAutomaticProtectionSystem(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Get Automatic Protection System link = "https://opendata.infrabel.be/explore/dataset/systemes-de-protection-automatique/information/"
             </summary>

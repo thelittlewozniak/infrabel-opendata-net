@@ -4,6 +4,39 @@
         <name>OpenDataInfrabel</name>
     </assembly>
     <members>
+        <member name="T:OpenDataInfrabel.ClientsProducts.ClientsProducts">
+            <summary>
+            This class handle all call possible for Clients and products theme on the open data of Infrabel
+            </summary>
+        </member>
+        <member name="M:OpenDataInfrabel.ClientsProducts.ClientsProducts.#ctor">
+            <summary>
+            Instantiation of the httpClient
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionTonsKilometers(System.String,System.String,System.Int32,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionTrainsKilometers(System.String,System.String,System.Int32,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionEffectiveNumberTrainPaths(System.String,System.String,System.Int32,System.Int32)" -->
+        <member name="M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionNetTonnageYear(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Evolution of net tonnage per year link = "https://opendata.infrabel.be/explore/dataset/evolution-du-tonnage-net-par-an/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> EvolutionNetTonnageYear class type</returns>
+        </member>
+        <member name="T:OpenDataInfrabel.Security.Security">
+            <summary>
+            This class handle all call possible for the security them on the open data of Infrabel
+            </summary>
+        </member>
+        <member name="M:OpenDataInfrabel.Security.Security.#ctor">
+            <summary>
+            Instantiation of the httpClient
+            </summary>
+        </member>
         <member name="M:OpenDataInfrabel.Security.Security.GetAccidentsCSI(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Get accidents CSI link = "https://opendata.infrabel.be/explore/dataset/accidents-csi/information/"

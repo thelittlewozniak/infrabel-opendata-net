@@ -12,15 +12,18 @@ using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.Security
 {
-    public class Security:IDisposable
+    /// <summary>
+    /// This class handle all call possible for the security them on the open data of Infrabel
+    /// </summary>
+    public class Security : IDisposable, ISecurity
     {
         private readonly HttpClient httpClient;
         private bool disposed = false;
         private static readonly string url = "https://opendata.infrabel.be/api/records/1.0/search/?";
-        public Security()
-        {
-            httpClient = new HttpClient();
-        }
+        /// <summary>
+        /// Instantiation of the httpClient
+        /// </summary>
+        public Security() => httpClient = new HttpClient();
         /// <summary>
         /// Get accidents CSI link = "https://opendata.infrabel.be/explore/dataset/accidents-csi/information/"
         /// </summary>

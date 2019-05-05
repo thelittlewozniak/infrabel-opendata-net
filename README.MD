@@ -1,5 +1,54 @@
 ## OpenDataInfrabel ##
 
+# T:OpenDataInfrabel.ClientsProducts.ClientsProducts
+
+ This class handle all call possible for Clients and products theme on the open data of Infrabel
+
+
+
+---
+##### M:OpenDataInfrabel.ClientsProducts.ClientsProducts.#ctor
+
+ Instantiation of the httpClient
+
+
+
+---
+##### M:OpenDataInfrabel.ClientsProducts.ClientsProducts.GetEvolutionNetTonnageYear(System.String,System.String,System.Int32,System.Int32)
+
+ Evolution of net tonnage per year link = "https://opendata.infrabel.be/explore/dataset/evolution-du-tonnage-net-par-an/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|Name | Description |
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|Name | Description |
+|-----|------|
+|rows: | number of results wanted|
+|Name | Description |
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  EvolutionNetTonnageYear class type
+
+
+
+---
+# T:OpenDataInfrabel.Security.Security
+
+ This class handle all call possible for the security them on the open data of Infrabel
+
+
+
+---
+##### M:OpenDataInfrabel.Security.Security.#ctor
+
+ Instantiation of the httpClient
+
+
+
+---
 ##### M:OpenDataInfrabel.Security.Security.GetAccidentsCSI(System.String,System.String,System.Int32,System.Int32)
 
  Get accidents CSI link = "https://opendata.infrabel.be/explore/dataset/accidents-csi/information/"
@@ -168,4 +217,3 @@ Returns: AutomaticProtectionSystem class type
 
 
 ---
-

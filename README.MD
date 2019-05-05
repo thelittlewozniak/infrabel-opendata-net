@@ -14,6 +14,69 @@
 
 
 ---
+##### M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionTonsKilometers(System.String,System.String,System.Int32,System.Int32)
+
+ Get evolution of tons kilometers link = "https://opendata.infrabel.be/explore/dataset/evolution-des-tonnes-kilometres/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|Name | Description |
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|Name | Description |
+|-----|------|
+|rows: | number of results wanted|
+|Name | Description |
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  EvolutionTonsKilometers class type
+
+
+
+---
+##### M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionTrainsKilometers(System.String,System.String,System.Int32,System.Int32)
+
+ Get evolution of trains kilometers link = "https://opendata.infrabel.be/explore/dataset/evolution-des-trains-kilometres/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|Name | Description |
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|Name | Description |
+|-----|------|
+|rows: | number of results wanted|
+|Name | Description |
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  EvolutionTrainsKilometers class type
+
+
+
+---
+##### M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionEffectiveNumberTrainPaths(System.String,System.String,System.Int32,System.Int32)
+
+ Evolution of the number of effective train paths link = "https://opendata.infrabel.be/explore/dataset/evolution-du-nombre-de-sillons-effectifs/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|Name | Description |
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|Name | Description |
+|-----|------|
+|rows: | number of results wanted|
+|Name | Description |
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  EvolutionEffectiveNumberTrainPaths class type
+
+
+
+---
 ##### M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionNetTonnageYear(System.String,System.String,System.Int32,System.Int32)
 
  Evolution of net tonnage per year link = "https://opendata.infrabel.be/explore/dataset/evolution-du-tonnage-net-par-an/information/"

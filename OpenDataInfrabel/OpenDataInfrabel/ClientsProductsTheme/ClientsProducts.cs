@@ -25,7 +25,7 @@ namespace OpenDataInfrabel.ClientsProductsTheme
         public ClientsProducts() => httpClient = new HttpClient();
 
         /// <summary>
-        /// Get evolution of tons kilometers link = "https://opendata.infrabel.be/explore/dataset/evolution-des-tonnes-kilometres/information/?disjunctive.trimester&disjunctive.sector_fr"
+        /// Get evolution of tons kilometers link = "https://opendata.infrabel.be/explore/dataset/evolution-des-tonnes-kilometres/information/"
         /// </summary>
         /// <param name="q"> the query in integral text</param>
         /// <param name="lang"> the language wanted (language code in 2 letters)</param>
@@ -46,8 +46,9 @@ namespace OpenDataInfrabel.ClientsProductsTheme
             var result = JsonConvert.DeserializeObject<EvolutionTonsKilometers>(requestString);
             return result;
         }
+
         /// <summary>
-        /// Get evolution of trains kilometers link = "https://opendata.infrabel.be/explore/dataset/evolution-des-trains-kilometres/information/?disjunctive.trimester&disjunctive.sector_fr"
+        /// Get evolution of trains kilometers link = "https://opendata.infrabel.be/explore/dataset/evolution-des-trains-kilometres/information/"
         /// </summary>
         /// <param name="q"> the query in integral text</param>
         /// <param name="lang"> the language wanted (language code in 2 letters)</param>
@@ -68,8 +69,9 @@ namespace OpenDataInfrabel.ClientsProductsTheme
             var result = JsonConvert.DeserializeObject<EvolutionTrainsKilometers>(requestString);
             return result;
         }
+
         /// <summary>
-        /// Evolution of the number of effective train paths link = "https://opendata.infrabel.be/explore/dataset/evolution-du-nombre-de-sillons-effectifs/information/?disjunctive.trimester&disjunctive.categorie_fr"
+        /// Evolution of the number of effective train paths link = "https://opendata.infrabel.be/explore/dataset/evolution-du-nombre-de-sillons-effectifs/information/"
         /// </summary>
         /// <param name="q"> the query in integral text</param>
         /// <param name="lang"> the language wanted (language code in 2 letters)</param>
@@ -90,6 +92,7 @@ namespace OpenDataInfrabel.ClientsProductsTheme
             var result = JsonConvert.DeserializeObject<EvolutionEffectiveNumberTrainPaths>(requestString);
             return result;
         }
+
         /// <summary>
         /// Evolution of net tonnage per year link = "https://opendata.infrabel.be/explore/dataset/evolution-du-tonnage-net-par-an/information/"
         /// </summary>

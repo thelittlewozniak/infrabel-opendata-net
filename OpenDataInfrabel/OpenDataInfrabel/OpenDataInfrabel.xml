@@ -14,9 +14,36 @@
             Instantiation of the httpClient
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionTonsKilometers(System.String,System.String,System.Int32,System.Int32)" -->
-        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionTrainsKilometers(System.String,System.String,System.Int32,System.Int32)" -->
-        <!-- Badly formed XML comment ignored for member "M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionEffectiveNumberTrainPaths(System.String,System.String,System.Int32,System.Int32)" -->
+        <member name="M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionTonsKilometers(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Get evolution of tons kilometers link = "https://opendata.infrabel.be/explore/dataset/evolution-des-tonnes-kilometres/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> EvolutionTonsKilometers class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionTrainsKilometers(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Get evolution of trains kilometers link = "https://opendata.infrabel.be/explore/dataset/evolution-des-trains-kilometres/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> EvolutionTrainsKilometers class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionEffectiveNumberTrainPaths(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Evolution of the number of effective train paths link = "https://opendata.infrabel.be/explore/dataset/evolution-du-nombre-de-sillons-effectifs/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> EvolutionEffectiveNumberTrainPaths class type</returns>
+        </member>
         <member name="M:OpenDataInfrabel.ClientsProductsTheme.ClientsProducts.GetEvolutionNetTonnageYear(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Evolution of net tonnage per year link = "https://opendata.infrabel.be/explore/dataset/evolution-du-tonnage-net-par-an/information/"

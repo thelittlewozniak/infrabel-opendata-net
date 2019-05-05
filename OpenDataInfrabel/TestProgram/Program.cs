@@ -1,5 +1,6 @@
 ﻿using OpenDataInfrabel.ClientsProductsTheme;
-using OpenDataInfrabel.Security;
+using OpenDataInfrabel.HumanRessourcesTheme;
+using OpenDataInfrabel.SecurityTheme;
 using System;
 
 namespace TestProgram
@@ -8,8 +9,8 @@ namespace TestProgram
     {
         static async System.Threading.Tasks.Task Main(string[] args)
         {
-            ClientsProducts clientsProducts = new ClientsProducts();
-            var result8 = await clientsProducts.GetEvolutionNetTonnageYear();
+            IHumanRessources humanRessources = new HumanRessources();
+            var result8 = await humanRessources.GetStaffTurnover();
             Console.WriteLine(result8);
         }
     }

@@ -21,13 +21,10 @@
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns:  EvolutionTonsKilometers class type
@@ -42,13 +39,10 @@ Returns:  EvolutionTonsKilometers class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns:  EvolutionTrainsKilometers class type
@@ -63,13 +57,10 @@ Returns:  EvolutionTrainsKilometers class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns:  EvolutionEffectiveNumberTrainPaths class type
@@ -84,16 +75,189 @@ Returns:  EvolutionEffectiveNumberTrainPaths class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns:  EvolutionNetTonnageYear class type
+
+
+
+---
+# T:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources
+
+ This class handle all call possible for Human Ressources theme on the open data of Infrabel
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.#ctor
+
+ Instantiation of the httpClient
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetDistanceBetweenWorkResidence(System.String,System.String,System.Int32,System.Int32)
+
+ Distance between place of residence and place of work link = "https://opendata.infrabel.be/explore/dataset/distance-entre-le-lieu-de-residence-et-le-lieu-de-travail/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  EvolutionNetTonnageYear class type
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetTeleWorkDays(System.String,System.String,System.Int32,System.Int32)
+
+ Telework days link = "https://opendata.infrabel.be/explore/dataset/jours-de-teletravail/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  TeleWorkDays class type
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetNumberFomrationDays(System.String,System.String,System.Int32,System.Int32)
+
+ Number of Formation days link = "https://opendata.infrabel.be/explore/dataset/nombre-de-jours-de-formation/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  NumberFormationDays class type
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetTeleworkersPercentages(System.String,System.String,System.Int32,System.Int32)
+
+ Percentages of teleworkers link = "https://opendata.infrabel.be/explore/dataset/pourcentages-de-teletravailleurs/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  TeleworkersPercentages class type
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetDistributionStaffByWorkType(System.String,System.String,System.Int32,System.Int32)
+
+ distribution of staff according to the type of job link = "https://opendata.infrabel.be/explore/dataset/repartition-du-personnel-en-fonction-du-type-de-metier/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  DistributionStaffWorkType class type
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetDistributionStaffByGender(System.String,System.String,System.Int32,System.Int32)
+
+ staff distribution by gender link = "https://opendata.infrabel.be/explore/dataset/repartition-du-personnel-par-genre/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  DistributionStaffGender class type
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetDistributionStaffByLevelStudyFunction(System.String,System.String,System.Int32,System.Int32)
+
+ Breakdown of staff by level of study of the function link = "https://opendata.infrabel.be/explore/dataset/repartition-du-personnel-par-niveau-detude-de-la-fonction/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  DistributionStaffStudy class type
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetDistributionStaffByAge(System.String,System.String,System.Int32,System.Int32)
+
+ Staff distribution by age group link = "https://opendata.infrabel.be/explore/dataset/repartition-du-personnel-par-tranche-dage/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  DistributionStaffAge class type
+
+
+
+---
+##### M:OpenDataInfrabel.HumanRessourcesTheme.HumanRessources.GetStaffTurnover(System.String,System.String,System.Int32,System.Int32)
+
+ Staff turnover link = "https://opendata.infrabel.be/explore/dataset/roulement-du-personnel/information/"
+
+|Name | Description |
+|-----|------|
+|q: | the query in integral text|
+|-----|------|
+|lang: | the language wanted (language code in 2 letters)|
+|-----|------|
+|rows: | number of results wanted|
+|-----|------|
+|start: |index of the first result wanted|
+Returns:  StaffTurnover class type
 
 
 
@@ -119,13 +283,10 @@ Returns:  EvolutionNetTonnageYear class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns:  Accident class type
@@ -140,13 +301,10 @@ Returns:  Accident class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns:  Accident class type
@@ -161,13 +319,10 @@ Returns:  Accident class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns: ViolationSignalRailwaySecondary class type
@@ -182,13 +337,10 @@ Returns: ViolationSignalRailwaySecondary class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns: ViolationSignalRailwayPrimary class type
@@ -203,13 +355,10 @@ Returns: ViolationSignalRailwayPrimary class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns: ViolationSignalRailwayPrimaryPerTrain class type
@@ -224,13 +373,10 @@ Returns: ViolationSignalRailwayPrimaryPerTrain class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns: ViolationRailway class type
@@ -245,13 +391,10 @@ Returns: ViolationRailway class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns: PrecursorsSecurity class type
@@ -266,13 +409,10 @@ Returns: PrecursorsSecurity class type
 |Name | Description |
 |-----|------|
 |q: | the query in integral text|
-|Name | Description |
 |-----|------|
 |lang: | the language wanted (language code in 2 letters)|
-|Name | Description |
 |-----|------|
 |rows: | number of results wanted|
-|Name | Description |
 |-----|------|
 |start: |index of the first result wanted|
 Returns: AutomaticProtectionSystem class type

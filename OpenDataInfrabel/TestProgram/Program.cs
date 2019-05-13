@@ -1,5 +1,6 @@
 ﻿using OpenDataInfrabel.ClientsProductsTheme;
 using OpenDataInfrabel.HumanRessourcesTheme;
+using OpenDataInfrabel.InfrastructureTheme;
 using OpenDataInfrabel.SecurityTheme;
 using System;
 
@@ -9,8 +10,8 @@ namespace TestProgram
     {
         static async System.Threading.Tasks.Task Main(string[] args)
         {
-            IHumanRessources humanRessources = new HumanRessources();
-            var result8 = await humanRessources.GetStaffTurnover();
+            IInfrastructure humanRessources = new Infrastructure();
+            var result8 = await humanRessources.GetLevelCrossingDeletions();
             Console.WriteLine(result8);
         }
     }

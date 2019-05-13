@@ -167,6 +167,138 @@
             <param name="start">index of the first result wanted</param>
             <returns> StaffTurnover class type</returns>
         </member>
+        <member name="T:OpenDataInfrabel.InfrastructureTheme.Infrastructure">
+            <summary>
+            This class handle all call possible for Infrastucture theme on the open data of Infrabel
+            </summary>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.#ctor">
+            <summary>
+            Instantiation of the httpClient
+            </summary>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetAssociationKilometersMarkersTracks(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            This dataset associates the identifiers of the milestones with the line number of the main tracks.
+            link = "https://opendata.infrabel.be/explore/dataset/association-des-bornes-kilometriques-et-des-voies/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> AssociationKilometersMarkersTracks class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetKilometersMarkersNetwork(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Geographical position of the kilometer markers along the tracks,
+            taking the identifier and the name of the marker as they can be read on the ground.
+            link = "https://opendata.infrabel.be/explore/dataset/bornes-kilometriques-sur-le-reseau/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>KilometersMarkersNetwork class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetEnergyConsuptionFixedInstallations(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Energy consumption of fixed installations
+            link = "https://opendata.infrabel.be/explore/dataset/consommation-en-energie-des-installations-fixes/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>EnergyConsuptionFixedInstallations class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetMonthlyConsumptionTractionEnergyWDistrib(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly consumption of traction energy (with distribution)
+            link = "https://opendata.infrabel.be/explore/dataset/consommation-mensuelle-de-lenergie-de-traction-avec-repartitions-kopie/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>MonthlyConsumptionTractionEnergyWDistrib class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetMonthlyConsumptionTractionEnergy(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly consumption of traction energy
+            link = "https://opendata.infrabel.be/explore/dataset/consommation-totale-de-lenergie-de-traction-par-mois/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>MonthlyConsumptionTractionEnergy class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetEvolutionNumberLevelCrossings(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Evolution of the number of level crossings
+            link = "https://opendata.infrabel.be/explore/dataset/evolution-du-nombre-de-passages-a-niveau/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>EvolutionNumberLevelCrossings class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetGeographicalPositionLevelCrossings(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            List and geographical position of level crossings
+            link = "https://opendata.infrabel.be/explore/dataset/geopn/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>GeographicalPositionLevelCrossings class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetGeographicalPositionMainRoutes(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            List and geographical position of the main routes
+            link = "https://opendata.infrabel.be/explore/dataset/geovoies/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>GeographicalPositionMainRoutes class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetNetworkOperationalPoints(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Network operational points
+            link = "https://opendata.infrabel.be/explore/dataset/points-operationnels-du-reseau/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>NetworkOperationalPoints class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetLineSections(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Line Sections
+            link = "https://opendata.infrabel.be/explore/dataset/segmentatie-volgens-de-eigenschappen-van-de-infrastructuur-en-de-exploitatiemoge/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>LineSections class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetLevelCrossingDeletions(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Level crossing deletions
+            link = "https://opendata.infrabel.be/explore/dataset/suppressions-de-passages-a-niveau/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>LevelCrossingDeletions class type</returns>
+        </member>
         <member name="T:OpenDataInfrabel.SecurityTheme.Security">
             <summary>
             This class handle all call possible for the security them on the open data of Infrabel

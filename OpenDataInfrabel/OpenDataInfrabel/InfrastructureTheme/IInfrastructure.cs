@@ -9,9 +9,6 @@ using Model.InfrastructureTheme.LineSections;
 using Model.InfrastructureTheme.MonthlyConsumptionTractionEnergy;
 using Model.InfrastructureTheme.MonthlyConsumptionTractionEnergyWDistrib;
 using Model.InfrastructureTheme.NetworkOperationalPoints;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.InfrastructureTheme

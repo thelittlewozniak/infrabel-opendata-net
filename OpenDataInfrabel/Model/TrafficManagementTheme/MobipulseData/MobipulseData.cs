@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Model.InfrastructureTheme.AssociationKilometersMarkersTracks
+namespace Model.TrafficManagementTheme.MobipulseData
 {
-    public class AssociationKilometersMarkersTracks
+    public class MobipulseData
     {
         public int Nhits { get; set; }
         public Parameters Parameters { get; set; }

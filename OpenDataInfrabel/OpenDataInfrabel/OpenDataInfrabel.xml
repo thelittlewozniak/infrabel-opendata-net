@@ -397,5 +397,93 @@
             <param name="start">index of the first result wanted</param>
             <returns>AutomaticProtectionSystem class type</returns>
         </member>
+        <member name="T:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement">
+            <summary>
+            This class handle all call possible for Traffic Management theme on the open data of Infrabel
+            </summary>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.#ctor">
+            <summary>
+            Instantiation of the httpClient
+            </summary>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetRawPunctualityData(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Raw data of arrival and departure of passenger trains (national and international) at their stops, on a day, by number of trains.
+            link = "https://opendata.infrabel.be/explore/dataset/data_raw_punctuality_xlsx/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> RawPunctualityData class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetMonthlyDataOnCorrespondence(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly data on connections to the 10 largest stations
+            link = "https://opendata.infrabel.be/explore/dataset/donnees-mensuelles-sur-les-correspondances/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> MonthlyDataOnCorrespondence class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetMobipulseData(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Mobipulse gives the average journey time to Brussels-Centrale from the 10 most important stations of Belgium
+            during the morning rush hour and the reverse journey during the evening rush hour
+            link = "https://opendata.infrabel.be/explore/dataset/donnees-mobipulse/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> MobipulseData class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityArrivalBrussels(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly arrival of the trains on arrival in the first station of the North-Midi junction in Brussels
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-a-larrivee-a-bruxelles/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityArrivalBrussels class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityArrivalBrusselsMoment(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly arrival of the trains arriving at the first station of the Nord-Midi junction in Brussels by moment
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-a-larrivee-a-bruxelles-par-moment/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityArrivalBrusselsMoment class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityArrivalBrusselsMomentMainLine(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly punctuality of the trains arriving at the first station of the North-Midi junction in Brussels by moment and by main line.
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-a-larrivee-a-bruxelles-par-moment-et-grande-ligne/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityArrivalBrusselsMomentMainLine class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityMajorStationsMonth(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly punctuality of the trains arriving at the first station of the North-Midi junction in Brussels by moment and by main line.
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-a-larrivee-a-bruxelles-par-moment-et-grande-ligne/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityMajorStationsMonth class type</returns>
+        </member>
     </members>
 </doc>

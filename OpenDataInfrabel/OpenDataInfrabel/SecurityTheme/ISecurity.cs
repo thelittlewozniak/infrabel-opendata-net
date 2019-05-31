@@ -19,5 +19,6 @@ namespace OpenDataInfrabel.SecurityTheme
         Task<ViolationRailway> GetViolationRailway(string q = null, string lang = "FR", int rows = 10, int start = 0);
         Task<PrecursorsSecurity> GetPrecursorsSecurity(string q = null, string lang = "FR", int rows = 10, int start = 0);
         Task<AutomaticProtectionSystem> GetAutomaticProtectionSystem(string q = null, string lang = "FR", int rows = 10, int start = 0);
+        void Dispose();
     }
 }

@@ -15,15 +15,12 @@ namespace OpenDataInfrabel.SecurityTheme
     /// <summary>
     /// This class handle all call possible for the security them on the open data of Infrabel
     /// </summary>
-    public class Security : IDisposable, ISecurity
+    public class Security : OpenDataCall, ISecurity
     {
-        private readonly HttpClient httpClient;
-        private bool disposed = false;
-        private static readonly string url = "https://opendata.infrabel.be/api/records/1.0/search/?";
         /// <summary>
         /// Instantiation of the httpClient
         /// </summary>
-        public Security() => httpClient = new HttpClient();
+        public Security():base() { }
         /// <summary>
         /// Get accidents CSI 
         /// link = "https://opendata.infrabel.be/explore/dataset/accidents-csi/information/"
@@ -35,16 +32,11 @@ namespace OpenDataInfrabel.SecurityTheme
         /// <returns> Accident class type</returns>
         public async Task<Accident> GetAccidentsCSI(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=accidents-csi&facet=column_1"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<Accident>(requestString);
+            var res = await MakeCall("accidents-csi", q, lang, rows, start, new string[]{
+                "column_1",
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<Accident>(res);
             return result;
         }
         /// <summary>
@@ -58,16 +50,11 @@ namespace OpenDataInfrabel.SecurityTheme
         /// <returns> Accident class type</returns>
         public async Task<Accident> GetAccidentsISI(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=accidents-isi&facet=column_1"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<Accident>(requestString);
+            var res = await MakeCall("accidents-isi", q, lang, rows, start, new string[]{
+                "column_1",
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<Accident>(res);
             return result;
         }
         /// <summary>
@@ -81,16 +68,11 @@ namespace OpenDataInfrabel.SecurityTheme
         /// <returns>ViolationSignalRailwaySecondary class type</returns>
         public async Task<ViolationSignalRailwaySecondary> GetViolationSignalRailwaySecondary(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=depassements-de-signaux-en-voie-accessoires&facet=annee_jaar"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<ViolationSignalRailwaySecondary>(requestString);
+            var res = await MakeCall("depassements-de-signaux-en-voie-accessoires", q, lang, rows, start, new string[]{
+                "annee_jaar",
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<ViolationSignalRailwaySecondary>(res);
             return result;
         }
         /// <summary>
@@ -104,16 +86,11 @@ namespace OpenDataInfrabel.SecurityTheme
         /// <returns>ViolationSignalRailwayPrimary class type</returns>
         public async Task<ViolationSignalRailwayPrimary> GetViolationSignalRailwayPrimary(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=depassements-de-signaux-en-voies-principales&facet=column_1"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<ViolationSignalRailwayPrimary>(requestString);
+            var res = await MakeCall("depassements-de-signaux-en-voies-principales", q, lang, rows, start, new string[]{
+                "column_1",
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<ViolationSignalRailwayPrimary>(res);
             return result;
         }
         /// <summary>
@@ -127,16 +104,12 @@ namespace OpenDataInfrabel.SecurityTheme
         /// <returns>ViolationSignalRailwayPrimaryPerTrain class type</returns>
         public async Task<ViolationSignalRailwayPrimaryPerTrain> GetViolationSignalRailwayPrimaryPerTrain(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=depassements-de-signaux-par-type-de-train-sur-les-voies-principales&facet=annee_jaar&facet=type_de_train_trein_type_voie_principale"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<ViolationSignalRailwayPrimaryPerTrain>(requestString);
+            var res = await MakeCall("depassements-de-signaux-par-type-de-train-sur-les-voies-principales", q, lang, rows, start, new string[]{
+                "annee_jaar",
+                "type_de_train_trein_type_voie_principale"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<ViolationSignalRailwayPrimaryPerTrain>(res);
             return result;
         }
         /// <summary>
@@ -150,16 +123,11 @@ namespace OpenDataInfrabel.SecurityTheme
         /// <returns>ViolationRailway class type</returns>
         public async Task<ViolationRailway> GetViolationRailway(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=intrusions-sur-les-voies&facet=column_1"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<ViolationRailway>(requestString);
+            var res = await MakeCall("intrusions-sur-les-voies", q, lang, rows, start, new string[]{
+                "column_1"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<ViolationRailway>(res);
             return result;
         }
         /// <summary>
@@ -173,16 +141,11 @@ namespace OpenDataInfrabel.SecurityTheme
         /// <returns>PrecursorsSecurity class type</returns>
         public async Task<PrecursorsSecurity> GetPrecursorsSecurity(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=precurseurs-securite&facet=column_1"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<PrecursorsSecurity>(requestString);
+            var res = await MakeCall("precurseurs-securite", q, lang, rows, start, new string[]{
+                "column_1"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<PrecursorsSecurity>(res);
             return result;
         }
         /// <summary>
@@ -196,34 +159,12 @@ namespace OpenDataInfrabel.SecurityTheme
         /// <returns>AutomaticProtectionSystem class type</returns>
         public async Task<AutomaticProtectionSystem> GetAutomaticProtectionSystem(string q = null, string lang = "FR", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=systemes-de-protection-automatique&facet=column_1"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<AutomaticProtectionSystem>(requestString);
+            var res = await MakeCall("systemes-de-protection-automatique", q, lang, rows, start, new string[]{
+                "column_1"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<AutomaticProtectionSystem>(res);
             return result;
-
-        }
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
-                {
-                    httpClient.Dispose();
-                }
-                disposed = true;
-            }
         }
     }
 }

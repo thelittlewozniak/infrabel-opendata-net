@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Model.InfrastructureTheme.AssociationKilometersMarkersTracks
+namespace Model.TrafficManagementTheme.RawPunctualityData
 {
-    public class AssociationKilometersMarkersTracks
+    public class RawPunctualityData
     {
         public int Nhits { get; set; }
         public Parameters Parameters { get; set; }

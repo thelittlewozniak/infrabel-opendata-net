@@ -8,8 +8,6 @@ using Model.HumanRessourcesTheme.StaffTurnover;
 using Model.HumanRessourcesTheme.TeleWorkDays;
 using Model.HumanRessourcesTheme.TeleworkersPercentages;
 using Newtonsoft.Json;
-using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.HumanRessourcesTheme
@@ -17,15 +15,12 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
     /// <summary>
     /// This class handle all call possible for Human Ressources theme on the open data of Infrabel
     /// </summary>
-    public class HumanRessources : IHumanRessources
+    public class HumanRessources : OpenDataCall, IHumanRessources
     {
-        private readonly HttpClient httpClient;
-        private bool disposed = false;
-        private static readonly string url = "https://opendata.infrabel.be/api/records/1.0/search/?";
         /// <summary>
         /// Instantiation of the httpClient
         /// </summary>
-        public HumanRessources() => httpClient = new HttpClient();
+        public HumanRessources() : base() { }
         /// <summary>
         /// Distance between place of residence and place of work 
         /// link = "https://opendata.infrabel.be/explore/dataset/distance-entre-le-lieu-de-residence-et-le-lieu-de-travail/information/"
@@ -37,16 +32,13 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> EvolutionNetTonnageYear class type</returns>
         public async Task<DistanceBetweenWorkResidence> GetDistanceBetweenWorkResidence(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=distance-entre-le-lieu-de-residence-et-le-lieu-de-travail&facet=year&facet=q&facet=category"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<DistanceBetweenWorkResidence>(requestString);
+            var res = await MakeCall("distance-entre-le-lieu-de-residence-et-le-lieu-de-travail", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+                "category"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<DistanceBetweenWorkResidence>(res);
             return result;
         }
         /// <summary>
@@ -60,16 +52,13 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> TeleWorkDays class type</returns>
         public async Task<TeleWorkDays> GetTeleWorkDays(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=jours-de-teletravail&facet=year&facet=q&facet=category"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<TeleWorkDays>(requestString);
+            var res = await MakeCall("jours-de-teletravail", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+                "category"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<TeleWorkDays>(res);
             return result;
         }
         /// <summary>
@@ -83,16 +72,12 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> NumberFormationDays class type</returns>
         public async Task<NumberFormationDays> GetNumberFomrationDays(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=jours-de-teletravail&facet=year&facet=q"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<NumberFormationDays>(requestString);
+            var res = await MakeCall("nombre-de-jours-de-formation", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<NumberFormationDays>(res);
             return result;
         }
         /// <summary>
@@ -106,16 +91,13 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> TeleworkersPercentages class type</returns>
         public async Task<TeleworkersPercentages> GetTeleworkersPercentages(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=pourcentages-de-teletravailleurs&facet=year&facet=q&facet=category"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<TeleworkersPercentages>(requestString);
+            var res = await MakeCall("pourcentages-de-teletravailleurs", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+                "category"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<TeleworkersPercentages>(res);
             return result;
         }
         /// <summary>
@@ -129,16 +111,13 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> DistributionStaffWorkType class type</returns>
         public async Task<DistributionStaffWorkType> GetDistributionStaffByWorkType(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=repartition-du-personnel-en-fonction-du-type-de-metier&facet=year&facet=q&facet=category"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<DistributionStaffWorkType>(requestString);
+            var res = await MakeCall("repartition-du-personnel-en-fonction-du-type-de-metier", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+                "category"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<DistributionStaffWorkType>(res);
             return result;
         }
         /// <summary>
@@ -152,16 +131,13 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> DistributionStaffGender class type</returns>
         public async Task<DistributionStaffGender> GetDistributionStaffByGender(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=repartition-du-personnel-par-genre&facet=year&facet=q&facet=category"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<DistributionStaffGender>(requestString);
+            var res = await MakeCall("repartition-du-personnel-par-genre", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+                "category"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<DistributionStaffGender>(res);
             return result;
         }
         /// <summary>
@@ -175,16 +151,13 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> DistributionStaffStudy class type</returns>
         public async Task<DistributionStaffStudy> GetDistributionStaffByLevelStudyFunction(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=repartition-du-personnel-par-niveau-detude-de-la-fonction&facet=year&facet=q&facet=category"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<DistributionStaffStudy>(requestString);
+            var res = await MakeCall("repartition-du-personnel-par-niveau-detude-de-la-fonction", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+                "category"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<DistributionStaffStudy>(res);
             return result;
         }
         /// <summary>
@@ -198,16 +171,13 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> DistributionStaffAge class type</returns>
         public async Task<DistributionStaffAge> GetDistributionStaffByAge(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=repartition-du-personnel-par-tranche-dage&facet=year&facet=q&facet=category"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<DistributionStaffAge>(requestString);
+            var res = await MakeCall("repartition-du-personnel-par-tranche-dage", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+                "category"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<DistributionStaffAge>(res);
             return result;
         }
         /// <summary>
@@ -221,35 +191,14 @@ namespace OpenDataInfrabel.HumanRessourcesTheme
         /// <returns> StaffTurnover class type</returns>
         public async Task<StaffTurnover> GetStaffTurnover(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=roulement-du-personnel&facet=year&facet=q&facet=category"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<StaffTurnover>(requestString);
+            var res = await MakeCall("roulement-du-personnel", q, lang, rows, start, new string[]{
+                "year",
+                "q",
+                "category"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<StaffTurnover>(res);
             return result;
         }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
-                {
-                    httpClient.Dispose();
-                }
-                disposed = true;
-            }
-        }
-
     }
 }

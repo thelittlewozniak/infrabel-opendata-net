@@ -2,12 +2,9 @@
 using Model.ClientsProductsTheme.EvolutionNetTonnageYear;
 using Model.ClientsProductsTheme.EvolutionTonsKilometers;
 using Model.ClientsProductsTheme.EvolutionTrainsKilometers;
-using Model.HumanRessourcesTheme.DistanceBetweenWorkResidence;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.ClientsProductsTheme
@@ -15,15 +12,12 @@ namespace OpenDataInfrabel.ClientsProductsTheme
     /// <summary>
     /// This class handle all call possible for Clients and products theme on the open data of Infrabel
     /// </summary>
-    public class ClientsProducts : IDisposable, IClientsProducts
+    public class ClientsProducts : OpenDataCall, IClientsProducts
     {
-        private readonly HttpClient httpClient;
-        private bool disposed = false;
-        private static readonly string url = "https://opendata.infrabel.be/api/records/1.0/search/?";
         /// <summary>
         /// Instantiation of the httpClient
         /// </summary>
-        public ClientsProducts() => httpClient = new HttpClient();
+        public ClientsProducts() : base() { }
 
         /// <summary>
         /// Get evolution of tons kilometers 
@@ -36,16 +30,13 @@ namespace OpenDataInfrabel.ClientsProductsTheme
         /// <returns> EvolutionTonsKilometers class type</returns>
         public async Task<EvolutionTonsKilometers> GetEvolutionTonsKilometers(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=evolution-des-tonnes-kilometres&facet=jaar&facet=trimester&facet=sector_fr"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<EvolutionTonsKilometers>(requestString);
+            var res = await MakeCall("evolution-des-tonnes-kilometres", q, lang, rows, start, new string[]{
+                "jaar",
+                "trimester",
+                "sector_fr"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<EvolutionTonsKilometers>(res);
             return result;
         }
         /// <summary>
@@ -59,16 +50,14 @@ namespace OpenDataInfrabel.ClientsProductsTheme
         /// <returns> EvolutionTrainsKilometers class type</returns>
         public async Task<EvolutionTrainsKilometers> GetEvolutionTrainsKilometers(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=evolution-des-trains-kilometres&facet=jaar&facet=trimester&facet=sector_fr"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<EvolutionTrainsKilometers>(requestString);
+            var res = await MakeCall("evolution-des-trains-kilometres", q, lang, rows, start, new string[]{
+                "jaar",
+                "trimester",
+                "sector_fr",
+                "effectief_niet_effectief_fr"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<EvolutionTrainsKilometers>(res);
             return result;
         }
         /// <summary>
@@ -82,16 +71,13 @@ namespace OpenDataInfrabel.ClientsProductsTheme
         /// <returns> EvolutionEffectiveNumberTrainPaths class type</returns>
         public async Task<EvolutionEffectiveNumberTrainPaths> GetEvolutionEffectiveNumberTrainPaths(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=evolution-du-nombre-de-sillons-effectifs&facet=jaar&facet=trimester&facet=categorie_fr"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<EvolutionEffectiveNumberTrainPaths>(requestString);
+            var res = await MakeCall("evolution-du-nombre-de-sillons-effectifs", q, lang, rows, start, new string[]{
+                "jaar",
+                "trimester",
+                "categorie_fr"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<EvolutionEffectiveNumberTrainPaths>(res);
             return result;
         }
         /// <summary>
@@ -105,35 +91,12 @@ namespace OpenDataInfrabel.ClientsProductsTheme
         /// <returns> EvolutionNetTonnageYear class type</returns>
         public async Task<EvolutionNetTonnageYear> GetEvolutionNetTonnageYear(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=evolution-du-tonnage-net-par-an&facet=jaar"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<EvolutionNetTonnageYear>(requestString);
+            var res = await MakeCall("evolution-du-tonnage-net-par-an", q, lang, rows, start, new string[]{
+                "jaar",
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<EvolutionNetTonnageYear>(res);
             return result;
         }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
-                {
-                    httpClient.Dispose();
-                }
-                disposed = true;
-            }
-        }
-
     }
 }

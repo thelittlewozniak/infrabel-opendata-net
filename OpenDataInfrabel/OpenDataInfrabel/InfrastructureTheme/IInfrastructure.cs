@@ -9,11 +9,12 @@ using Model.InfrastructureTheme.LineSections;
 using Model.InfrastructureTheme.MonthlyConsumptionTractionEnergy;
 using Model.InfrastructureTheme.MonthlyConsumptionTractionEnergyWDistrib;
 using Model.InfrastructureTheme.NetworkOperationalPoints;
+using System;
 using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.InfrastructureTheme
 {
-    public interface IInfrastructure
+    public interface IInfrastructure:IDisposable
     {
         Task<AssociationKilometersMarkersTracks> GetAssociationKilometersMarkersTracks(string q = null, string lang = "fr", int rows = 10, int start = 0);
         Task<KilometersMarkersNetwork> GetKilometersMarkersNetwork(string q = null, string lang = "fr", int rows = 10, int start = 0);

@@ -7,11 +7,12 @@ using Model.HumanRessourcesTheme.NumberFormationDays;
 using Model.HumanRessourcesTheme.StaffTurnover;
 using Model.HumanRessourcesTheme.TeleWorkDays;
 using Model.HumanRessourcesTheme.TeleworkersPercentages;
+using System;
 using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.HumanRessourcesTheme
 {
-    public interface IHumanRessources
+    public interface IHumanRessources:IDisposable
     {
         Task<DistanceBetweenWorkResidence> GetDistanceBetweenWorkResidence(string q = null, string lang = "fr", int rows = 10, int start = 0);
         Task<TeleWorkDays> GetTeleWorkDays(string q = null, string lang = "fr", int rows = 10, int start = 0);

@@ -19,15 +19,12 @@ namespace OpenDataInfrabel.InfrastructureTheme
     /// <summary>
     /// This class handle all call possible for Infrastucture theme on the open data of Infrabel
     /// </summary>
-    public class Infrastructure : IDisposable, IInfrastructure
+    public class Infrastructure : OpenDataCall, IInfrastructure
     {
-        private readonly HttpClient httpClient;
-        private bool disposed = false;
-        private static readonly string url = "https://opendata.infrabel.be/api/records/1.0/search/?";
         /// <summary>
         /// Instantiation of the httpClient
         /// </summary>
-        public Infrastructure() => httpClient = new HttpClient();
+        public Infrastructure() : base() { }
         /// <summary>
         /// This dataset associates the identifiers of the milestones with the line number of the main tracks.
         /// link = "https://opendata.infrabel.be/explore/dataset/association-des-bornes-kilometriques-et-des-voies/information/"
@@ -39,16 +36,11 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns> AssociationKilometersMarkersTracks class type</returns>
         public async Task<AssociationKilometersMarkersTracks> GetAssociationKilometersMarkersTracks(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=association-des-bornes-kilometriques-et-des-voies&facet=track_id"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<AssociationKilometersMarkersTracks>(requestString);
+            var res = await MakeCall("association-des-bornes-kilometriques-et-des-voies", q, lang, rows, start, new string[]{
+                "track_id",
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<AssociationKilometersMarkersTracks>(res);
             return result;
         }
         /// <summary>
@@ -63,16 +55,9 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>KilometersMarkersNetwork class type</returns>
         public async Task<KilometersMarkersNetwork> GetKilometersMarkersNetwork(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=bornes-kilometriques-sur-le-reseau"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<KilometersMarkersNetwork>(requestString);
+            var res = await MakeCall("bornes-kilometriques-sur-le-reseau", q, lang, rows, start, new string[] { });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<KilometersMarkersNetwork>(res);
             return result;
         }
         /// <summary>
@@ -86,16 +71,11 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>EnergyConsuptionFixedInstallations class type</returns>
         public async Task<EnergyConsuptionFixedInstallations> GetEnergyConsuptionFixedInstallations(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=consommation-en-energie-des-installations-fixes&facet=empty"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<EnergyConsuptionFixedInstallations>(requestString);
+            var res = await MakeCall("consommation-en-energie-des-installations-fixes", q, lang, rows, start, new string[] {
+            "empty"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<EnergyConsuptionFixedInstallations>(res);
             return result;
         }
         /// <summary>
@@ -109,16 +89,11 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>MonthlyConsumptionTractionEnergyWDistrib class type</returns>
         public async Task<MonthlyConsumptionTractionEnergyWDistrib> GetMonthlyConsumptionTractionEnergyWDistrib(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=consommation-mensuelle-de-lenergie-de-traction-avec-repartitions-kopie&facet=column_1"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<MonthlyConsumptionTractionEnergyWDistrib>(requestString);
+            var res = await MakeCall("consommation-mensuelle-de-lenergie-de-traction-avec-repartitions-kopie", q, lang, rows, start, new string[] {
+            "column_1"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<MonthlyConsumptionTractionEnergyWDistrib>(res);
             return result;
         }
         /// <summary>
@@ -132,16 +107,11 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>MonthlyConsumptionTractionEnergy class type</returns>
         public async Task<MonthlyConsumptionTractionEnergy> GetMonthlyConsumptionTractionEnergy(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=consommation-totale-de-lenergie-de-traction-par-mois&facet=empty"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<MonthlyConsumptionTractionEnergy>(requestString);
+            var res = await MakeCall("consommation-totale-de-lenergie-de-traction-par-mois", q, lang, rows, start, new string[] {
+            "empty"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<MonthlyConsumptionTractionEnergy>(res);
             return result;
         }
         /// <summary>
@@ -155,16 +125,13 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>EvolutionNumberLevelCrossings class type</returns>
         public async Task<EvolutionNumberLevelCrossings> GetEvolutionNumberLevelCrossings(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=evolution-du-nombre-de-passages-a-niveau&facet=jaar&facet=openbaar_prive_fr&facet=type_lijn_fr"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<EvolutionNumberLevelCrossings>(requestString);
+            var res = await MakeCall("consommation-totale-de-lenergie-de-traction-par-mois", q, lang, rows, start, new string[] {
+            "jaar",
+            "openbaar_prive_fr",
+            "type_lijn_fr"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<EvolutionNumberLevelCrossings>(res);
             return result;
         }
         /// <summary>
@@ -178,16 +145,12 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>GeographicalPositionLevelCrossings class type</returns>
         public async Task<GeographicalPositionLevelCrossings> GetGeographicalPositionLevelCrossings(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=geopn&facet=fld_actief_passief&facet=fld_postcode_en_gemeente"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<GeographicalPositionLevelCrossings>(requestString);
+            var res = await MakeCall("geopn", q, lang, rows, start, new string[] {
+            "fld_actief_passief",
+            "fld_postcode_en_gemeente"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<GeographicalPositionLevelCrossings>(res);
             return result;
         }
         /// <summary>
@@ -201,16 +164,15 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>GeographicalPositionMainRoutes class type</returns>
         public async Task<GeographicalPositionMainRoutes> GetGeographicalPositionMainRoutes(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=geovoies&facet=status&facet=modifdate&facet=trackname&facet=trackcode&facet=trackcode"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<GeographicalPositionMainRoutes>(requestString);
+            var res = await MakeCall("geovoies", q, lang, rows, start, new string[] {
+            "status",
+            "modifdate",
+            "trackname",
+            "trackcode",
+            "trackcode"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<GeographicalPositionMainRoutes>(res);
             return result;
         }
         /// <summary>
@@ -224,18 +186,21 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>NetworkOperationalPoints class type</returns>
         public async Task<NetworkOperationalPoints> GetNetworkOperationalPoints(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=points-operationnels-du-reseau&facet=classification&facet=shortnamefrench&facet=commerciallongnamedutch" +
-                "&facet=commercialmiddlenamefrench&facet=longnamefrench&facet=commercialmiddlenamedutch&facet=commercialshortnamefrench&" +
-                "facet=commerciallongnamefrench&facet=shortnamedutch&facet=commercialshortnamedutch&facet=longnamedutch"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<NetworkOperationalPoints>(requestString);
+            var res = await MakeCall("points-operationnels-du-reseau", q, lang, rows, start, new string[] {
+            "classification",
+            "shortnamefrench",
+            "commerciallongnamedutch",
+            "commercialmiddlenamefrench",
+            "longnamefrench",
+            "commercialmiddlenamedutch",
+            "commercialshortnamefrench",
+            "commerciallongnamefrench",
+            "shortnamedutch",
+            "commercialshortnamedutch",
+            "longnamedutch"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<NetworkOperationalPoints>(res);
             return result;
         }
         /// <summary>
@@ -249,17 +214,16 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>LineSections class type</returns>
         public async Task<LineSections> GetLineSections(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=segmentatie-volgens-de-eigenschappen-van-de-infrastructuur-en-de-exploitatiemoge&facet=gauge_nat&facet=label&facet=linecat_f" +
-                "&facet=linecat_p&facet=ecs_voltfreq&facet=gauge"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<LineSections>(requestString);
+            var res = await MakeCall("segmentatie-volgens-de-eigenschappen-van-de-infrastructuur-en-de-exploitatiemoge", q, lang, rows, start, new string[] {
+            "gauge_nat",
+            "label",
+            "linecat_f",
+            "linecat_p",
+            "ecs_voltfreq",
+            "gauge"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<LineSections>(res);
             return result;
         }
         /// <summary>
@@ -273,34 +237,13 @@ namespace OpenDataInfrabel.InfrastructureTheme
         /// <returns>LevelCrossingDeletions class type</returns>
         public async Task<LevelCrossingDeletions> GetLevelCrossingDeletions(string q = null, string lang = "fr", int rows = 10, int start = 0)
         {
-            var finalUrl = url + "dataset=suppressions-de-passages-a-niveau&facet=jaar&facet=openbaar_prive_fr"
-                + (q == null ? "" : "&q=" + q)
-                + "&lang=" + lang
-                + "&rows=" + rows
-                + "&start=" + start;
-            var request = await httpClient.GetAsync(finalUrl);
-            if (request.StatusCode != System.Net.HttpStatusCode.OK)
-                return null;
-            var requestString = await request.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<LevelCrossingDeletions>(requestString);
+            var res = await MakeCall("suppressions-de-passages-a-niveau", q, lang, rows, start, new string[] {
+            "jaar",
+            "openbaar_prive_fr"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<LevelCrossingDeletions>(res);
             return result;
         }
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
-                {
-                    httpClient.Dispose();
-                }
-                disposed = true;
-            }
-        }
-
     }
 }

@@ -5,11 +5,12 @@ using Model.TrafficManagementTheme.PunctualityArrivalBrusselsMoment;
 using Model.TrafficManagementTheme.PunctualityArrivalBrusselsMomentMainLine;
 using Model.TrafficManagementTheme.PunctualityMajorStationsMonth;
 using Model.TrafficManagementTheme.RawPunctualityData;
+using System;
 using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.TrafficManagementTheme
 {
-    public interface ITrafficManagement
+    public interface ITrafficManagement:IDisposable
     {
         Task<RawPunctualityData> GetRawPunctualityData(string q = null, string lang = "fr", int rows = 10, int start = 0);
         Task<MonthlyDataOnCorrespondence> GetMonthlyDataOnCorrespondence(string q = null, string lang = "fr", int rows = 10, int start = 0);
@@ -18,6 +19,5 @@ namespace OpenDataInfrabel.TrafficManagementTheme
         Task<PunctualityArrivalBrusselsMoment> GetPunctualityArrivalBrusselsMoment(string q = null, string lang = "fr", int rows = 10, int start = 0);
         Task<PunctualityArrivalBrusselsMomentMainLine> GetPunctualityArrivalBrusselsMomentMainLine(string q = null, string lang = "fr", int rows = 10, int start = 0);
         Task<PunctualityMajorStationsMonth> GetPunctualityMajorStationsMonth(string q = null, string lang = "fr", int rows = 10, int start = 0);
-        void Dispose();
     }
 }

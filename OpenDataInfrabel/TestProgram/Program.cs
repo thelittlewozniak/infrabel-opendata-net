@@ -9,8 +9,8 @@ namespace TestProgram
     {
         static async System.Threading.Tasks.Task Main(string[] args)
         {
-            ISecurity humanRessources = new Security();
-            var result8 = await humanRessources.GetAccidentsISI();
+            IInfrastructure humanRessources = new Infrastructure();
+            var result8 = await humanRessources.GetKilometersMarkersNetwork();
             Console.WriteLine(result8);
         }
     }

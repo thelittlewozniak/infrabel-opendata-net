@@ -3,10 +3,14 @@ using Model.TrafficManagementTheme.MonthlyDataOnCorrespondence;
 using Model.TrafficManagementTheme.PunctualityArrivalBrussels;
 using Model.TrafficManagementTheme.PunctualityArrivalBrusselsMoment;
 using Model.TrafficManagementTheme.PunctualityArrivalBrusselsMomentMainLine;
+using Model.TrafficManagementTheme.PunctualityEurostar;
+using Model.TrafficManagementTheme.PunctualityFreightTrains;
+using Model.TrafficManagementTheme.PunctualityICE;
 using Model.TrafficManagementTheme.PunctualityICRelations;
 using Model.TrafficManagementTheme.PunctualityICRelationsMoment;
 using Model.TrafficManagementTheme.PunctualityMajorStationsMonth;
 using Model.TrafficManagementTheme.PunctualityTGV;
+using Model.TrafficManagementTheme.PunctualityThalys;
 using Model.TrafficManagementTheme.RawPunctualityData;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
@@ -219,6 +223,78 @@ namespace OpenDataInfrabel.TrafficManagementTheme
             });
             if (res == null) return null;
             var result = JsonConvert.DeserializeObject<PunctualityTGV>(res);
+            return result;
+        }
+        /// <summary>
+        /// Monthly punctuality of freight trains on the Infrabel network
+        /// link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-trains-de-marchandises/information/"
+        /// </summary>
+        /// <param name="q"> the query in integral text</param>
+        /// <param name="lang"> the language wanted (language code in 2 letters)</param>
+        /// <param name="rows"> number of results wanted</param>
+        /// <param name="start">index of the first result wanted</param>
+        /// <returns> PunctualityFreightTrains class type</returns>
+        public async Task<PunctualityFreightTrains> GetPunctualityFreightTrains(string q = null, string lang = "fr", int rows = 10, int start = 0)
+        {
+            var res = await MakeCall("ponctualite-des-trains-de-marchandises", q, lang, rows, start, new string[]{
+                "maand2"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<PunctualityFreightTrains>(res);
+            return result;
+        }
+        /// <summary>
+        /// Monthly punctuality of Eurostar trains as they pass through the Infrabel network
+        /// link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-trains-eurostar/information/"
+        /// </summary>
+        /// <param name="q"> the query in integral text</param>
+        /// <param name="lang"> the language wanted (language code in 2 letters)</param>
+        /// <param name="rows"> number of results wanted</param>
+        /// <param name="start">index of the first result wanted</param>
+        /// <returns> PunctualityEurostar class type</returns>
+        public async Task<PunctualityEurostar> GetPunctualityEurostar(string q = null, string lang = "fr", int rows = 10, int start = 0)
+        {
+            var res = await MakeCall("ponctualite-des-trains-eurostar", q, lang, rows, start, new string[]{
+                "maand1"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<PunctualityEurostar>(res);
+            return result;
+        }
+        /// <summary>
+        /// Monthly performance of ICE trains
+        /// link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-trains-ice/information/"
+        /// </summary>
+        /// <param name="q"> the query in integral text</param>
+        /// <param name="lang"> the language wanted (language code in 2 letters)</param>
+        /// <param name="rows"> number of results wanted</param>
+        /// <param name="start">index of the first result wanted</param>
+        /// <returns> PunctualityICE class type</returns>
+        public async Task<PunctualityICE> GetPunctualityICE(string q = null, string lang = "fr", int rows = 10, int start = 0)
+        {
+            var res = await MakeCall("ponctualite-des-trains-ice", q, lang, rows, start, new string[]{
+                "maand1"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<PunctualityICE>(res);
+            return result;
+        }
+        /// <summary>
+        /// Monthly performance of Thalys trains
+        /// link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-trains-thalys/information/"
+        /// </summary>
+        /// <param name="q"> the query in integral text</param>
+        /// <param name="lang"> the language wanted (language code in 2 letters)</param>
+        /// <param name="rows"> number of results wanted</param>
+        /// <param name="start">index of the first result wanted</param>
+        /// <returns> PunctualityThalys class type</returns>
+        public async Task<PunctualityThalys> GetPunctualityThalys(string q = null, string lang = "fr", int rows = 10, int start = 0)
+        {
+            var res = await MakeCall("ponctualite-des-trains-thalys", q, lang, rows, start, new string[]{
+                "maand1"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<PunctualityThalys>(res);
             return result;
         }
 

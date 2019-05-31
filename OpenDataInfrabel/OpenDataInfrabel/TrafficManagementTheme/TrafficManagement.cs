@@ -3,6 +3,7 @@ using Model.TrafficManagementTheme.MonthlyDataOnCorrespondence;
 using Model.TrafficManagementTheme.PunctualityArrivalBrussels;
 using Model.TrafficManagementTheme.PunctualityArrivalBrusselsMoment;
 using Model.TrafficManagementTheme.PunctualityArrivalBrusselsMomentMainLine;
+using Model.TrafficManagementTheme.PunctualityICRelations;
 using Model.TrafficManagementTheme.PunctualityMajorStationsMonth;
 using Model.TrafficManagementTheme.RawPunctualityData;
 using Newtonsoft.Json;
@@ -160,5 +161,26 @@ namespace OpenDataInfrabel.TrafficManagementTheme
             var result = JsonConvert.DeserializeObject<PunctualityMajorStationsMonth>(res);
             return result;
         }
+        /// <summary>
+        /// Monthly Punctuality of the IC relations on arrival at their final destination and on arrival at the first Brussels station at the junction.
+        /// link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-relations-ic/information/"
+        /// </summary>
+        /// <param name="q"> the query in integral text</param>
+        /// <param name="lang"> the language wanted (language code in 2 letters)</param>
+        /// <param name="rows"> number of results wanted</param>
+        /// <param name="start">index of the first result wanted</param>
+        /// <returns> PunctualityICRelations class type</returns>
+        public async Task<PunctualityICRelations> GetPunctualityICRelations(string q = null, string lang = "fr", int rows = 10, int start = 0)
+        {
+            var res = await MakeCall("ponctualite-des-relations-ic", q, lang, rows, start, new string[]{
+                "maand",
+                "relatie",
+                "op_stat"
+            });
+            if (res == null) return null;
+            var result = JsonConvert.DeserializeObject<PunctualityICRelations>(res);
+            return result;
+        }
+
     }
 }

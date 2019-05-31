@@ -3,7 +3,10 @@ using Model.TrafficManagementTheme.MonthlyDataOnCorrespondence;
 using Model.TrafficManagementTheme.PunctualityArrivalBrussels;
 using Model.TrafficManagementTheme.PunctualityArrivalBrusselsMoment;
 using Model.TrafficManagementTheme.PunctualityArrivalBrusselsMomentMainLine;
+using Model.TrafficManagementTheme.PunctualityICRelations;
+using Model.TrafficManagementTheme.PunctualityICRelationsMoment;
 using Model.TrafficManagementTheme.PunctualityMajorStationsMonth;
+using Model.TrafficManagementTheme.PunctualityTGV;
 using Model.TrafficManagementTheme.RawPunctualityData;
 using System;
 using System.Threading.Tasks;
@@ -19,5 +22,8 @@ namespace OpenDataInfrabel.TrafficManagementTheme
         Task<PunctualityArrivalBrusselsMoment> GetPunctualityArrivalBrusselsMoment(string q = null, string lang = "fr", int rows = 10, int start = 0);
         Task<PunctualityArrivalBrusselsMomentMainLine> GetPunctualityArrivalBrusselsMomentMainLine(string q = null, string lang = "fr", int rows = 10, int start = 0);
         Task<PunctualityMajorStationsMonth> GetPunctualityMajorStationsMonth(string q = null, string lang = "fr", int rows = 10, int start = 0);
+        Task<PunctualityICRelations> GetPunctualityICRelations(string q = null, string lang = "fr", int rows = 10, int start = 0);
+        Task<PunctualityICRelationsMoment> GetPunctualityICRelationsMoment(string q = null, string lang = "fr", int rows = 10, int start = 0);
+        Task<PunctualityTGV> GetPunctualityTGV(string q = null, string lang = "fr", int rows = 10, int start = 0);
     }
 }

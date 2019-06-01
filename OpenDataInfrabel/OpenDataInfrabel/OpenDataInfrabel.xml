@@ -200,6 +200,105 @@
             <param name="start">index of the first result wanted</param>
             <returns>KilometersMarkersNetwork class type</returns>
         </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetEnergyConsuptionFixedInstallations(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Energy consumption of fixed installations
+            link = "https://opendata.infrabel.be/explore/dataset/consommation-en-energie-des-installations-fixes/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>EnergyConsuptionFixedInstallations class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetMonthlyConsumptionTractionEnergyWDistrib(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly consumption of traction energy (with distribution)
+            link = "https://opendata.infrabel.be/explore/dataset/consommation-mensuelle-de-lenergie-de-traction-avec-repartitions-kopie/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>MonthlyConsumptionTractionEnergyWDistrib class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetMonthlyConsumptionTractionEnergy(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly consumption of traction energy
+            link = "https://opendata.infrabel.be/explore/dataset/consommation-totale-de-lenergie-de-traction-par-mois/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>MonthlyConsumptionTractionEnergy class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetEvolutionNumberLevelCrossings(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Evolution of the number of level crossings
+            link = "https://opendata.infrabel.be/explore/dataset/evolution-du-nombre-de-passages-a-niveau/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>EvolutionNumberLevelCrossings class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetGeographicalPositionLevelCrossings(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            List and geographical position of level crossings
+            link = "https://opendata.infrabel.be/explore/dataset/geopn/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>GeographicalPositionLevelCrossings class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetGeographicalPositionMainRoutes(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            List and geographical position of the main routes
+            link = "https://opendata.infrabel.be/explore/dataset/geovoies/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>GeographicalPositionMainRoutes class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetNetworkOperationalPoints(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Network operational points
+            link = "https://opendata.infrabel.be/explore/dataset/points-operationnels-du-reseau/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>NetworkOperationalPoints class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetLineSections(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Line Sections
+            link = "https://opendata.infrabel.be/explore/dataset/segmentatie-volgens-de-eigenschappen-van-de-infrastructuur-en-de-exploitatiemoge/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>LineSections class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.InfrastructureTheme.Infrastructure.GetLevelCrossingDeletions(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Level crossing deletions
+            link = "https://opendata.infrabel.be/explore/dataset/suppressions-de-passages-a-niveau/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns>LevelCrossingDeletions class type</returns>
+        </member>
         <member name="T:OpenDataInfrabel.SecurityTheme.Security">
             <summary>
             This class handle all call possible for the security them on the open data of Infrabel
@@ -385,6 +484,193 @@
             <param name="rows"> number of results wanted</param>
             <param name="start">index of the first result wanted</param>
             <returns> PunctualityMajorStationsMonth class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityICRelations(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly Punctuality of the IC relations on arrival at their final destination and on arrival at the first Brussels station at the junction.
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-relations-ic/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityICRelations class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityICRelationsMoment(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly Punctuality of the IC relations on arrival at their final destination and on arrival at the first Brussels station at the junction by moment.
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-relations-ic-par-moment/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityICRelationsMoment class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityTGV(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly performance of TGV trains on the Infrabel network.
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-tgv/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityTGV class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityFreightTrains(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly punctuality of freight trains on the Infrabel network
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-trains-de-marchandises/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityFreightTrains class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityEurostar(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly punctuality of Eurostar trains as they pass through the Infrabel network
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-trains-eurostar/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityEurostar class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityICE(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly performance of ICE trains
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-trains-ice/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityICE class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityThalys(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Monthly performance of Thalys trains
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-des-trains-thalys/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityThalys class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetNationalPunctualityMonth(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            National Punctuality by month
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-nationale-par-mois/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> NationalPunctualityMonth class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetNationalPunctualityMomentMonth(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            National Punctuality by moment by month
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-nationale-par-mois/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> NationalPunctualityMomentMonth class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetNationalWeightedPunctualityMonth(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            National Weighted Punctuality by Month
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-nationale-ponderee-par-mois/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> NationalWeightedPunctualityMonth class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetNationalPunctualityWithTrainsRemoved(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            National punctuality taking into account the trains removed
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-nationale-tenant-compte-des-trains-supprimes/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> NationalWeightedPunctualityMonth class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityTypeTrain(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Punctuality by type of train
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-par-type-de-train/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityTypeTrain class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetPunctualityTypeTrainMoment(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Punctuality by type of train and by moment
+            link = "https://opendata.infrabel.be/explore/dataset/ponctualite-par-type-de-train-et-par-moment/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> PunctualityTypeTrainMoment class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetSignalingStations(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Signaling stations
+            link = "https://opendata.infrabel.be/explore/dataset/postes-de-signalisation0/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> SignalingStations class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetResponsibilityDelaysMonth(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Responsibility for delays per month
+            link = "https://opendata.infrabel.be/explore/dataset/responsabilite-des-retards-par-mois0/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> ResponsibilityDelaysMonth class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetResponsibilityTrainDeletions(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Responsibility for train deletions
+            link = "https://opendata.infrabel.be/explore/dataset/responsabilite-des-suppressions-de-trains/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> ResponsibilityTrainDeletions class type</returns>
+        </member>
+        <member name="M:OpenDataInfrabel.TrafficManagementTheme.TrafficManagement.GetTrainsDeletedMonth(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Trains deleted per month
+            link = "https://opendata.infrabel.be/explore/dataset/trains-supprimes-par-mois/information/"
+            </summary>
+            <param name="q"> the query in integral text</param>
+            <param name="lang"> the language wanted (language code in 2 letters)</param>
+            <param name="rows"> number of results wanted</param>
+            <param name="start">index of the first result wanted</param>
+            <returns> TrainsDeletedMonth class type</returns>
         </member>
     </members>
 </doc>

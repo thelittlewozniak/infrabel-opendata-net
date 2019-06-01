@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.1</Version>
+    <Authors>thelittlewozniak</Authors>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT License</PackageLicenseExpression>
+    <Product>OpenDataInfrabel.NET</Product>
+    <PackageProjectUrl>https://github.com/thelittlewozniak/infrabel-opendata-net</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

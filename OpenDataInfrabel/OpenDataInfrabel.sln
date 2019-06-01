@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.28822.285
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenDataInfrabel", "OpenDataInfrabel\OpenDataInfrabel.csproj", "{ADDD1280-19FC-4707-A772-CA0C873AC129}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{4CEE5AB3-0782-4645-8561-329763F88905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelOpenDataInfrabel", "Model\ModelOpenDataInfrabel.csproj", "{4CEE5AB3-0782-4645-8561-329763F88905}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProgram", "TestProgram\TestProgram.csproj", "{D615B5FF-F013-4CD1-9783-691F49E7E345}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProgram", "TestProgram\TestProgram.csproj", "{D615B5FF-F013-4CD1-9783-691F49E7E345}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

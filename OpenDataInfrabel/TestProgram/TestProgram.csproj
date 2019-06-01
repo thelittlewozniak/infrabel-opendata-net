@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenDataInfrabel\OpenDataInfrabel.csproj" />
+    <PackageReference Include="OpenDataInfrabel" Version="0.2.0" />
   </ItemGroup>
 
 </Project>

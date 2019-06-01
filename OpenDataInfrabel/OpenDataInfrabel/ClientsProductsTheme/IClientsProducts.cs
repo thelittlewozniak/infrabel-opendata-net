@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OpenDataInfrabel.ClientsProductsTheme
 {
-    interface IClientsProducts:IDisposable
+    public interface IClientsProducts:IDisposable
     {
         Task<EvolutionTonsKilometers> GetEvolutionTonsKilometers(string q = null, string lang = "fr", int rows = 10, int start = 0);
         Task<EvolutionTrainsKilometers> GetEvolutionTrainsKilometers(string q = null, string lang = "fr", int rows = 10, int start = 0);

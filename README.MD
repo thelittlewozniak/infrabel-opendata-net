@@ -1,31 +1,31 @@
 
 # How to use it?
-You just need to put this inside you Nuget Package:
+You just need to reference it in your project using this command line :
 ```
 Install-Package OpenDataInfrabel -Version 0.3.0
 ```
 # How to get data from API?
-### For infrastructure theme
+### Infrastructure Theme
 ```
 IInfrastructure infrastructure = new Infrastructure();
 var result = await infrastructure.GetKilometersMarkersNetwork();
 ```
-### For security theme
+### Security Theme
 ```
 ISecurity security = new Security();
 var result = await security.GetAccidentsCSI();
 ```
-### For traffic Management theme
+### Traffic Management Theme
 ```
 ITrafficManagement trafficManagement = new TrafficManagement();
 var result = await trafficManagement.GetMobipulseData();
 ```
-### For human ressources theme
+### Human Ressources Theme
 ```
 IHumanRessources humanRessources = new HumanRessources();
 var result = await humanRessources.GetDistributionStaffByGender();
 ```
-### For Client products theme
+### Client Products Theme
 ```
 IClientsProducts clientsProducts = new ClientsProducts();
 var result = await clientsProducts.GetEvolutionNetTonnageYear();

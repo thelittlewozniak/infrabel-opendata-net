@@ -18,7 +18,7 @@ namespace OpenDataInfrabel
         
         protected async Task<string> MakeCall(string dataset, string q, string lang, int rows, int start, string[] facet)
         {
-            StringBuilder finalUrl = new StringBuilder($"{url}dataset={dataset}");
+            var finalUrl = new StringBuilder($"{url}dataset={dataset}");
             for (int i = 0; i < facet.Length; i++)
             {
                 finalUrl.Append($"&facet={facet[i]}");
